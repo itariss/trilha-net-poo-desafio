@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace DesafioPOO.Models
 {
     public abstract class Smartphone
@@ -26,15 +24,16 @@ namespace DesafioPOO.Models
 
         public void Ligar(string numero)
         {
-            try 
+            
+            Console.WriteLine($"Ligando para o número {numero}... | {Modelo} {Marca}");
+            Smartphone phone = GetPhone(numero);
+            if(phone != null)
             {
-                Console.WriteLine($"Ligando para o número {numero}... | {Modelo} {Marca}");
-                VerificarNumero(numero).ReceberLigacao(this.Numero);
-
+            phone.ReceberLigacao(this.Numero);
             }
-            catch (NullReferenceException)
+            else
             {
-                System.Console.WriteLine($"O número chamado não existe  | {Modelo} {Marca}");
+            System.Console.WriteLine($"O número chamado não existe  | {Modelo} {Marca}");
             }
         }
 
@@ -53,20 +52,9 @@ namespace DesafioPOO.Models
             });
         }
 
-        public Smartphone VerificarNumero(string numero)
+        public Smartphone GetPhone(string numero)
         {
-
-            Smartphone phone = null;
-
-            smartphonesCadastrados.ForEach(p =>
-            {
-                if(numero.Equals(p.Numero))
-                {
-                    phone = p;
-                }
-            });
-
-            return phone;
+            return smartphonesCadastrados.FirstOrDefault(phone => phone.Numero.Equals(numero));
         }
 
         
