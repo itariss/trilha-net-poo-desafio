@@ -17,6 +17,6 @@ Criar as suas classes de acordo com o diagrama abaixo:
 
 ## Bônus
 
-Lista com todos os smartphones cadastrados.
-Função ligar agora recebe um número a ser consultado na lista de smartphones cadastrados.
-Função ligar dispara função receber chamada no número destino.
+- Lista com todos os smartphones cadastrados.
+- Função ligar agora recebe um número a ser consultado na lista de smartphones cadastrados.
+- Função ligar dispara função receber chamada no número destino.
